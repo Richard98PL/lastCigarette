@@ -116,15 +116,14 @@ function convertMiliseconds(miliseconds, format) {
 
 
 var audio = new Audio('demo.mp3');
-audio.loop();
+
 
 function btnFunction(){
   var btn = document.getElementById("btn");
   if(btn.className == "playBtn"){
     btn.className = "stopBtn";
     audio.play();
-    
-
+    audio.loop();
   } else {
     btn.className = "playBtn";
     audio.pause();
