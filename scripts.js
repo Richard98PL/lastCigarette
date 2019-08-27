@@ -3,7 +3,7 @@ window.setInterval(function(){
     
 
     document.getElementById("demo").innerHTML = "Last cigarette: ";
-    let lastDay = new Date(2019,7,27,13,18,0);
+    let lastDay = new Date(2019,7,27,12,52,0);
     if( (lastDay.getMonth()+1) < 10 )var dateLast = lastDay.getDate() + ".0" + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     else var dateLast = lastDay.getDate() + "." + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     let timeLast = lastDay.getHours() + ":" + lastDay.getMinutes() + ":" + lastDay.getSeconds();
