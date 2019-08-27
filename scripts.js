@@ -116,6 +116,10 @@ function convertMiliseconds(miliseconds, format) {
 
 
 var audio = new Audio('demo.mp3');
+audio.addEventListener('ended', function() {
+  this.currentTime = 0;
+  this.play();
+}, false);
 
 
 function btnFunction(){
@@ -123,11 +127,12 @@ function btnFunction(){
   if(btn.className == "playBtn"){
     btn.className = "stopBtn";
     audio.play();
-    audio.loop();
   } else {
     btn.className = "playBtn";
     audio.pause();
 }
+
+
 }
 
 
