@@ -3,11 +3,11 @@ window.setInterval(function(){
     
 
     document.getElementById("demo").innerHTML = "Last cigarette: ";
-    let lastDay = new Date(2019,7,27,12,52,0);
+    let lastDay = new Date(2019,7,27,12,52,42);
     if( (lastDay.getMonth()+1) < 10 )var dateLast = lastDay.getDate() + ".0" + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     else var dateLast = lastDay.getDate() + "." + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     let timeLast = lastDay.getHours() + ":" + lastDay.getMinutes() + ":" + lastDay.getSeconds();
-    let dateTimeLast = dateLast +' '+timeLast+"0";
+    let dateTimeLast = dateLast +' '+timeLast;
     document.getElementById("demo").innerHTML += dateTimeLast + "<br />";
 
     document.getElementById("demo").innerHTML += "Now: ";
@@ -47,7 +47,7 @@ function onLoadFunction(){
     if( (lastDay.getMonth()+1) < 10 )var dateLast = lastDay.getDate() + ".0" + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     else var dateLast = lastDay.getDate() + "." + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
     let timeLast = lastDay.getHours() + ":" + lastDay.getMinutes() + ":" + lastDay.getSeconds();
-    let dateTimeLast = dateLast +' '+timeLast+"0";
+    let dateTimeLast = dateLast +' '+timeLast;
     document.getElementById("demo").innerHTML += dateTimeLast + "<br />";
 
     document.getElementById("demo").innerHTML += "Now: ";
@@ -111,7 +111,24 @@ function convertMiliseconds(miliseconds, format) {
         document.getElementById("demo").innerHTML += "Seconds : " + seconds + "<br />";
 
   }
-};
+}
+
+
+
+var audio = new Audio('demo.mp3');
+
+function btnFunction(){
+  var btn = document.getElementById("btn");
+  if(btn.className == "playBtn"){
+    btn.className = "stopBtn";
+    audio.play();
+
+  } else {
+    btn.className = "playBtn";
+    audio.pause();
+}
+}
+
 
 
 

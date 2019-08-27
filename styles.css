@@ -11,17 +11,17 @@ html{
 
 .hit-the-floor {
     color: #1E90FF;
-    
-    overflow: hidden;
-    position: absolute;
+  
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    position: absolute;
     display: flex;
     justify-content: center; /*centers items on the line (the x-axis by default)*/
     align-items: center; /*centers items on the cross-axis (y by default)*/
     text-align : center;
  
-    transform-origin: 0% 300%;
+    transform-origin: 0% 150%;
     animation: shake 20s ease-in-out 0s infinite alternate;
 
     font-size: 3em;
@@ -41,4 +41,50 @@ html{
          }
         
       }
+      .wrapper{
+        position: absolute;
+        top: 49%;
+        left: 35%;
+        z-index:100;
+        
+      }
+      .playBtn {
+        
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        width: 0;
+        height: 74px;
+        border-color: transparent transparent transparent #00ff00;
+        transition: 200ms all ease;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 37px 0 37px 60px;
+        
+      }
+      .stopBtn {
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        width: 0;
+        height: 74px;
+        border-color: transparent transparent transparent #ff0000;
+        transition: 200ms all ease;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 37px 0 37px 60px;
+        border-style: double;
+        border-width: 0px 0 0px 60px;
+      }
+      .playBtn:hover {
+        border-color: transparent transparent transparent #33cc33;
+      }
+      
+      .stopBtn:hover{
+        border-color: transparent transparent transparent #cc0000;
+      }
+
+      
+      
+      
 
