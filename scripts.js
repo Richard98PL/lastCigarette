@@ -1,13 +1,13 @@
 window.setInterval(function(){
   let lastDay = new Date(2019,8,27,12,52,42);
   let lastDayAlco = new Date(2019,12,15,21,10,05);
-    
+  let today = new Date();
 
     document.getElementById("demo1").innerHTML = "Last cigarette: ";
     document.getElementById("demo1").innerHTML += formattedDateTime(lastDay) + "<br />";
 
     document.getElementById("demo1").innerHTML += "Now: ";
-    document.getElementById("demo1").innerHTML += formattedDateTime(new Date());
+    document.getElementById("demo1").innerHTML += formattedDateTime(today);
 
     document.getElementById("demo1").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
     let timeDiff = today - lastDay; //in ms
@@ -17,10 +17,10 @@ window.setInterval(function(){
     document.getElementById("demo2").innerHTML += formattedDateTime(lastDayAlco) + "<br />";
 
     document.getElementById("demo2").innerHTML += "Now: ";
-    document.getElementById("demo2").innerHTML += formattedDateTime(new Date());
+    document.getElementById("demo1").innerHTML += formattedDateTime(today);
 
     document.getElementById("demo2").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
-    let timeDiff = today - lastDay; //in ms
+    timeDiff = today - lastDay; //in ms
     convertMiliseconds(timeDiff,"xD",2);
 
   }, 1000);
