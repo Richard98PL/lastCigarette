@@ -3,21 +3,21 @@ window.setInterval(function(){
   let lastDayAlco = new Date(2019,11,15,21,10,05);
   let today = new Date();
 
-    document.getElementById("demo1").innerHTML = "Last cigarette: ";
+  document.getElementById("caption").innerHTML = "Now: ";
+    document.getElementById("caption").innerHTML += formattedDateTime(today);
+
+    document.getElementById("demo1").innerHTML = "<br/>" + "Last cigarette: ";
     document.getElementById("demo1").innerHTML += formattedDateTime(lastDay) + "<br />";
 
-    document.getElementById("demo1").innerHTML += "Now: ";
-    document.getElementById("demo1").innerHTML += formattedDateTime(today);
+    
 
     document.getElementById("demo1").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
     let timeDiff = today - lastDay; //in ms
     convertMiliseconds(timeDiff,"xD",1);
 
-    document.getElementById("demo2").innerHTML = "Last alcohol: ";
+    document.getElementById("demo2").innerHTML = "<br/>" + "Last alcohol: ";
     document.getElementById("demo2").innerHTML += formattedDateTime(lastDayAlco) + "<br />";
 
-    document.getElementById("demo2").innerHTML += "Now: ";
-    document.getElementById("demo2").innerHTML += formattedDateTime(today);
 
     document.getElementById("demo2").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
     timeDiff = today - lastDayAlco; //in ms
@@ -59,7 +59,9 @@ function convertMiliseconds(miliseconds, format,whichDemo) {
   days = parseInt(Math.floor(total_hours / 24));
 
   seconds = parseInt(total_seconds % 60);
+  if(seconds < 10)seconds = "0" + seconds;
   minutes = parseInt(total_minutes % 60);
+  if(minutes < 10) minutes = "0" + minutes;
   hours = parseInt(total_hours % 24);
   
   switch(format) {
