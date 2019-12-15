@@ -43,8 +43,8 @@ html{
       }
       .wrapper{
         position: absolute;
-        top: 49%;
-        left: 35%;
+        top: 5%;
+        left: 5%;
         z-index:100;
         
       }
