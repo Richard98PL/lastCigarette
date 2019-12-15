@@ -1,89 +1,56 @@
 window.setInterval(function(){
-    /// call your function here
+  let lastDay = new Date(2019,8,27,12,52,42);
+  let lastDayAlco = new Date(2019,12,15,21,10,05);
     
 
-    document.getElementById("demo").innerHTML = "Last cigarette: ";
-    let lastDay = new Date(2019,7,27,12,52,42);
-    if( (lastDay.getMonth()+1) < 10 )var dateLast = lastDay.getDate() + ".0" + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
-    else var dateLast = lastDay.getDate() + "." + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
-    let timeLast = lastDay.getHours() + ":" + lastDay.getMinutes() + ":" + lastDay.getSeconds();
-    let dateTimeLast = dateLast +' '+timeLast;
-    document.getElementById("demo").innerHTML += dateTimeLast + "<br />";
+    document.getElementById("demo1").innerHTML = "Last cigarette: ";
+    document.getElementById("demo1").innerHTML += formattedDateTime(lastDay) + "<br />";
 
-    document.getElementById("demo").innerHTML += "Now: ";
-    let today = new Date();
+    document.getElementById("demo1").innerHTML += "Now: ";
+    document.getElementById("demo1").innerHTML += formattedDateTime(new Date());
 
-    //building a date with "0"
-    if( (today.getMonth()+1) < 10 )var date = today.getDate() + ".0" + (today.getMonth()+1) + "." + today.getFullYear();
-    else var date = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear();
+    document.getElementById("demo1").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
+    let timeDiff = today - lastDay; //in ms
+    convertMiliseconds(timeDiff,"xD",1);
 
-    //buidling a time with "0"
+    document.getElementById("demo2").innerHTML = "Last alcohol: ";
+    document.getElementById("demo2").innerHTML += formattedDateTime(lastDayAlco) + "<br />";
 
-    if( today.getSeconds() < 10 )var seconds = "0" + today.getSeconds();
-    else var seconds = today.getSeconds();
+    document.getElementById("demo2").innerHTML += "Now: ";
+    document.getElementById("demo2").innerHTML += formattedDateTime(new Date());
 
-    if( today.getMinutes() < 10) var minutes = "0"  + today.getMinutes();
-    else var minutes = today.getMinutes();
-
-    if( today.getHours() < 10) var hours = "0" + today.getHours();
-    else var hours = today.getHours();
-
-    let time = hours + ":" + minutes + ":" + seconds;
-    let dateTime = date + " " + time;
-    
-    document.getElementById("demo").innerHTML += dateTime + "<br /><br />" + "Time passed: " + "<br />";
-
-    var timeDiff = today - lastDay; //in ms
-    convertMiliseconds(timeDiff,"xD");
+    document.getElementById("demo2").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
+    let timeDiff = today - lastDay; //in ms
+    convertMiliseconds(timeDiff,"xD",2);
 
   }, 1000);
-    
-function onLoadFunction(){
-    
-    
 
-    document.getElementById("demo").innerHTML = "Last cigarette: ";
-    let lastDay = new Date(2019,7,27,13,18,0);
-    if( (lastDay.getMonth()+1) < 10 )var dateLast = lastDay.getDate() + ".0" + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
-    else var dateLast = lastDay.getDate() + "." + (lastDay.getMonth()+1) + "." + lastDay.getFullYear();
-    let timeLast = lastDay.getHours() + ":" + lastDay.getMinutes() + ":" + lastDay.getSeconds();
-    let dateTimeLast = dateLast +' '+timeLast;
-    document.getElementById("demo").innerHTML += dateTimeLast + "<br />";
+  function formattedDateTime(givenDate){
 
-    document.getElementById("demo").innerHTML += "Now: ";
-    let today = new Date();
-
-    //building a date with "0"
-    if( (today.getMonth()+1) < 10 )var date = today.getDate() + ".0" + (today.getMonth()+1) + "." + today.getFullYear();
-    else var date = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear();
-
-    //buidling a time with "0"
-
-    if( today.getSeconds() < 10 )var seconds = "0" + today.getSeconds();
-    else var seconds = today.getSeconds();
-
-    if( today.getMinutes() < 10) var minutes = "0"  + today.getMinutes();
-    else var minutes = today.getMinutes();
-
-    if( today.getHours() < 10) var hours = "0" + today.getHours();
-    else var hours = today.getHours();
-
-    let time = hours + ":" + minutes + ":" + seconds;
-    let dateTime = date + " " + time;
-    
-    document.getElementById("demo").innerHTML += dateTime + "<br /><br />" + "Time passed: " + "<br />";
-
-    var timeDiff = today - lastDay; //in ms
-    convertMiliseconds(timeDiff,"xD");
-
-    //muza
-    
-    
-};
-
-
-
-function convertMiliseconds(miliseconds, format) {
+    if(givenDate != null){
+     let year = givenDate.getFullYear();
+     let month = givenDate.getMonth();
+     let day = givenDate.getDate();
+     let hour = givenDate.getHours();
+     let minute = givenDate.getMinutes();
+     let seconds = givenDate.getSeconds();
+     
+     month = givenDate.getMonth() + 1;
+     if(month > 12)month=1;
+     if( (givenDate.getMonth()+1) < 10 ) month = "0" + month;
+     if( (givenDate.getDate()) < 10 ) day = "0" + day;
+     if( (givenDate.getHours()) < 10 ) hour = "0" + hour;
+     if( (givenDate.getMinutes()) < 10 ) minute = "0" + minute;
+     if( (givenDate.getSeconds()) < 10 ) seconds = "0" + seconds;
+   
+     let formattedDateTime = day+"."+month+"."+year+" "+hour+":"+minute+":"+seconds;
+     return formattedDateTime;
+   }else{
+     return "Not Yet.";
+   }
+ }
+ 
+function convertMiliseconds(miliseconds, format,whichDemo) {
   var days, hours, minutes, seconds, total_hours, total_minutes, total_seconds;
   
   total_seconds = parseInt(Math.floor(miliseconds / 1000));
@@ -105,25 +72,21 @@ function convertMiliseconds(miliseconds, format) {
 	case 'd':
 		return days;
 	default:
-        document.getElementById("demo").innerHTML += "Days : " + days + "<br />";
-        document.getElementById("demo").innerHTML += "Hours : " + hours + "<br />";
-        document.getElementById("demo").innerHTML += "Minutes : " + minutes + "<br />";
-        document.getElementById("demo").innerHTML += "Seconds : " + seconds + "<br />";
-
+        document.getElementById("demo"+whichDemo).innerHTML += "Days : " + days + "<br />";
+        document.getElementById("demo"+whichDemo).innerHTML += "Hours : " + hours + "<br />";
+        document.getElementById("demo"+whichDemo).innerHTML += "Minutes : " + minutes + "<br />";
+        document.getElementById("demo"+whichDemo).innerHTML += "Seconds : " + seconds + "<br />";
   }
 }
 
-
-
-var audio = new Audio('demo.mp3');
+let audio = new Audio('demo.mp3');
 audio.addEventListener('ended', function() {
   this.currentTime = 0;
   this.play();
 }, false);
 
-
 function btnFunction(){
-  var btn = document.getElementById("btn");
+  let btn = document.getElementById("btn");
   if(btn.className == "playBtn"){
     btn.className = "stopBtn";
     audio.play();
@@ -132,8 +95,9 @@ function btnFunction(){
     audio.pause();
 }
 
-
 }
+
+
 
 
 
