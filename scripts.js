@@ -1,6 +1,6 @@
 window.setInterval(function(){
-  let lastDay = new Date(2019,8,27,12,52,42);
-  let lastDayAlco = new Date(2019,12,15,21,10,05);
+  let lastDay = new Date(2019,7,27,12,52,42);
+  let lastDayAlco = new Date(2019,11,15,21,10,05);
   let today = new Date();
 
     document.getElementById("demo1").innerHTML = "Last cigarette: ";
@@ -35,7 +35,7 @@ window.setInterval(function(){
      let minute = givenDate.getMinutes();
      let seconds = givenDate.getSeconds();
      
-     //month = givenDate.getMonth() + 1;
+     month = givenDate.getMonth() + 1;
      if(month > 12)month=1;
      if( (givenDate.getMonth()+1) < 10 ) month = "0" + month;
      if( (givenDate.getDate()) < 10 ) day = "0" + day;
