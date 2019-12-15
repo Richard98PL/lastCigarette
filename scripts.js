@@ -17,10 +17,10 @@ window.setInterval(function(){
     document.getElementById("demo2").innerHTML += formattedDateTime(lastDayAlco) + "<br />";
 
     document.getElementById("demo2").innerHTML += "Now: ";
-    document.getElementById("demo1").innerHTML += formattedDateTime(today);
+    document.getElementById("demo2").innerHTML += formattedDateTime(today);
 
     document.getElementById("demo2").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
-    timeDiff = today - lastDay; //in ms
+    timeDiff = today - lastDayAlco; //in ms
     convertMiliseconds(timeDiff,"xD",2);
 
   }, 1000);
