@@ -35,7 +35,7 @@ window.setInterval(function(){
      let minute = givenDate.getMinutes();
      let seconds = givenDate.getSeconds();
      
-     month = givenDate.getMonth() + 1;
+     //month = givenDate.getMonth() + 1;
      if(month > 12)month=1;
      if( (givenDate.getMonth()+1) < 10 ) month = "0" + month;
      if( (givenDate.getDate()) < 10 ) day = "0" + day;
