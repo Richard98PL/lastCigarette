@@ -15,13 +15,6 @@ window.setInterval(function(){
     let timeDiff = today - lastDay; //in ms
     convertMiliseconds(timeDiff,"xD",1);
 
-    document.getElementById("demo2").innerHTML = "<br/>" + "Last alcohol: ";
-    document.getElementById("demo2").innerHTML += formattedDateTime(lastDayAlco) + "<br />";
-
-
-    document.getElementById("demo2").innerHTML += "<br /><br />" + "Time passed: " + "<br />";
-    timeDiff = today - lastDayAlco; //in ms
-    convertMiliseconds(timeDiff,"xD",2);
 
   }, 1000);
 
